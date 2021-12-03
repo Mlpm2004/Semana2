@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script aula3 exercicio 2</title>
+    
+</head>
+<script>
+
+</script>
+<style>
+    #map {
+        height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }    
+</style>
+<body>
+    <script >        
+        var body = document.getElementsByTagName("body")[0];
+        fetch("https://amapalanches.com/includes/v1/getTodas.php").then(function(data){
+        return data.json();
+        }).then(function(json){
+
+            for (i=0;i<=json.todas.length-1;i++){
+                
+            var titulo = json.todas[i].titulo;
+            var subtitulo = json.todas[i].subTitulo;
+            var lat = json.todas[i].lat;
+            var long = json.todas[i].lng;
+            var html = "<section ><p>"+titulo+" "+subtitulo+"  latitude : "+lat+" Longitude : "+long+" </p></section>";
+            body.insertAdjacentHTML("beforeend",html)
+            }
+        })
+</script> 
+
+</body>
+</html>

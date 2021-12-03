@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+
+
+<body>
+    <script>
+        var textos = ["animal","carro","humano","prédio","cadeira","objeto"]
+        var ordenado=textos.sort(); 
+        var html=""
+        var body = document.getElementsByTagName("body")[0];
+        for (i=0;i<=ordenado.length-1;i++){
+            html= "<section> "+ordenado[i]+" </section>"
+            body.insertAdjacentHTML("beforeend",html)   
+        }
+        
+
+    </script>
+ 
+
+</body>
+</html>

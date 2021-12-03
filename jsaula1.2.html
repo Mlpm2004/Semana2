@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DEV in House</title>
+    </head>
+    <script>
+        var participantes =0
+        var satisfeitos=0
+        var idadetot=0
+        var varid=0
+        function executa() {
+            participantes++
+            var array = [1,2,3,4,5,6,7,8,9,10]; 
+            var array1 = ["s","S","n","N"]; 
+            var teste=true;
+            var nome = window.prompt("Digite seu nome:");
+            while (true){
+                var idade = parseInt(window.prompt("Digite sua idade:"));
+                 if (!isNaN(idade)) break;
+                 alert("Entre somente com números ");
+            }
+
+            var teste=true;          
+            while (teste) {
+                var satisfacao = window.prompt("Digite um número de 1 a 10 para expressar sua satisfação :");
+                for (i=0;i<=9;i++) {
+                    if (array[i]==satisfacao) {
+                        teste=false;
+                        break;
+                    }
+                }
+                if (teste) alert("Entre somente com números de 1 a 10");
+           } 
+            var teste=true;          
+            while (teste) {
+                var resp = window.prompt("Podemos incluir você na lista de satisfeitos? S/N"); 
+                for (i=0;i<=3;i++) {
+                    if (array1[i]==resp) {
+                        teste=false;
+                        break;
+                    }
+                }
+                if (teste) alert("Entre somente com s ou n");
+            } 
+            document.getElementById("numero").innerHTML = "Número de participantes = "+participantes 
+            if (resp=="s" || resp=="S")  { 
+                idadetot+=idade
+                satisfeitos++  
+                if (satisfeitos>=2) {
+                     varid =idadetot/satisfeitos
+                }
+                document.getElementById("idade").innerHTML = "Idade média dos participantes = "+varid
+                document.getElementById("satisfeitos").innerHTML = "Número de satisfeitos = "+satisfeitos
+                alert("Salvo com Sucesso!")
+            }
+                  
+        }
+    </script>
+    <style>
+    .colunas   {
+        border:1px solid;
+        display:block;
+        width:33%;
+        height: 40px;
+        text-align:center;
+  }    
+    </style>
+    <body >
+    <div style="display: flex;">
+        <section class="colunas" id="numero">
+            Número de participantes = 0
+        </section>
+        <section class="colunas" id="idade">
+            Idade média dos participantes = 0
+        </section>
+        <section class="colunas" id="satisfeitos">
+            Número de satisfeitos = 0
+        </section>
+    </div>
+    <BR>
+    <div align="center">
+        <input type="button" onclick="executa()" value="participar">
+    </div>
+    
+    </body>
+    </html>

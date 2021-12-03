@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA SCRIPT EX10</title>
+</head>
+<body>
+    <script>
+        var palavras = [];
+        var body = document.getElementsByTagName("body")[0];
+        var nome=""
+        while (nome!="parar"){
+            var nome = window.prompt("Digite uma palavra ou parar para terminar:");
+            if (nome!="parar") palavras.push(nome)
+        }
+        var temp=""
+        var html=""
+        for (i=0;i<palavras.length-1;i++){
+            for(j=i+1; j<=palavras.length-1;j++){
+                 if (palavras[i].length<palavras[j].length) {
+                    temp=palavras[j]
+                    palavras[j]=palavras[i]
+                    palavras[i]=temp
+                }
+            }
+         }
+        for (i=palavras.length-1;i>=0;i--){
+            html= "<section> "+palavras[i]+" </section>"
+            body.insertAdjacentHTML("beforeend",html)   
+        }
+     </script>
+ </body>
+</html>
+
+
+
